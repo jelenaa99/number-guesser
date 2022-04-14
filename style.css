@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    width: 40%;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-top: 50px;
+}
+
+main {
+    display: flex; 
+    margin-top: 35px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.left {
+    margin-right: 60px;
+}
+
+.guess-input {
+    height: 50px;
+    width: 70px;
+    font-size: 30px;
+}
+
+.number {
+    width: 10%;
+    height: 50px;
+    font-size: 40px;
+    margin: 20px auto 0 auto;
+    border: 1px solid #000;
+}
