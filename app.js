@@ -10,7 +10,6 @@ let randomNumber = Math.floor(Math.random() * 20) + 1;
 let score = 20;
 let highscore = 0;
 
-
 const gameSettings = () => {
     let inputNumber = Number(guessInput.value);
     numberParagraph.textContent = inputNumber;
@@ -21,15 +20,11 @@ const gameSettings = () => {
         submitBtn.disabled = true;
         highscore += score;
         highscoreLabel.textContent = highscore;
-    } else if (inputNumber > randomNumber) {
+    } else if (inputNumber !== randomNumber) {
         score--;
         scoreLabel.textContent = score;
-        messageParagraph.textContent = 'the guess is too high!'
-    } else if (inputNumber < randomNumber) {
-        score--;
-        scoreLabel.textContent = score;
-        messageParagraph.textContent = 'the guess is too low!';
-    } 
+        messageParagraph.textContent = inputNumber > randomNumber ? 'the guess it too high' : 'the guess is too low';
+    }
 
     if (!score) {
         messageParagraph.textContent = 'GAME OVER!';
@@ -43,14 +38,14 @@ submitBtn.addEventListener('click', gameSettings);
 
 const gameOver = () => {
     score = 20;
-    scoreLabel.textContent = 20;
+    scoreLabel.textContent = score;
     guessInput.value = '';
-    numberParagraph.textContent = '';
     submitBtn.disabled = false;
     messageParagraph.textContent = 'start guessing...';
     numberParagraph.style.border = '1px solid #000';
     numberParagraph.textContent = '?';
     randomNumber = Math.floor(Math.random() * 20) + 1;
+    console.log(randomNumber);
 }
 
 restartBtn.addEventListener('click', gameOver);
